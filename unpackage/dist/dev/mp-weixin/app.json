@@ -4,15 +4,15 @@
     "pages/cate/cate",
     "pages/cart/cart",
     "pages/my/my",
-    "pages/goods_detail/goods_detail"
+    "pages/goods_detail/goods_detail",
+    "pages/goods_list/goods_list"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "黑马优购",
     "navigationBarBackgroundColor": "#c00000",
-    "backgroundColor": "#c00000",
-    "enablePullDownRefresh": true
+    "backgroundColor": "#c00000"
   },
   "tabBar": {
     "selectedColor": "#c00000",
@@ -43,5 +43,11 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {
+    "van-card": "wxcomponents/vant/card/index",
+    "van-icon": "wxcomponents/vant/icon/index",
+    "van-goods-action": "wxcomponents/vant/goods-action/index",
+    "van-goods-action-icon": "wxcomponents/vant/goods-action-icon/index",
+    "van-goods-action-button": "wxcomponents/vant/goods-action-button/index"
+  }
 }

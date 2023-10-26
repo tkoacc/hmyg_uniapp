@@ -41,4 +41,29 @@
   width: 128rpx;
   height: 128rpx;
 }
+.home .floor-list .floor-item .floor-title {
+  height: 60rpx;
+  width: 100%;
+}
+.home .floor-list .floor-item .img_box {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10rpx;
+}
+.home .floor-list .floor-item .img_box .left {
+  width: 232rpx;
+  height: 392rpx;
+  float: left;
+}
+.home .floor-list .floor-item .img_box .right {
+  width: 500rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-between;
+}
+.home .floor-list .floor-item .img_box .right image {
+  width: 233rpx;
+  height: 190rpx;
+}
 

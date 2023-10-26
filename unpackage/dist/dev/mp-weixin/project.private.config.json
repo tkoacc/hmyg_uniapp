@@ -3,5 +3,25 @@
   "projectname": "hmyg",
   "setting": {
     "compileHotReLoad": true
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "商品详情",
+          "pathName": "pages/goods_detail/goods_detail",
+          "query": "id=57351",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商品列表页",
+          "pathName": "pages/goods_list/goods_list",
+          "query": "query=热",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
   }
 }

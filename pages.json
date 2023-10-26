@@ -1,54 +1,53 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-            "path" : "pages/home/home",
-            "style" :                                                                                    
-            {
-            }
-            
-        }
-        ,{
-            "path" : "pages/cate/cate",
-            "style" :                                                                                    
-            {
-            }
-            
-        }
-        ,{
-            "path" : "pages/cart/cart",
-            "style" :                                                                                    
-            {
-            }
-            
-        }
-        ,{
-            "path" : "pages/my/my",
-            "style" :                                                                                    
-            {
-            }
-            
-        }
-        ,{
-            "path" : "pages/goods_detail/goods_detail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+			"path": "pages/home/home",
+			"style": {}
+
+		}, {
+			"path": "pages/cate/cate",
+			"style": {}
+
+		}, {
+			"path": "pages/cart/cart",
+			"style": {}
+
+		}, {
+			"path": "pages/my/my",
+			"style": {}
+
+		}, {
+			"path": "pages/goods_detail/goods_detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/goods_list/goods_list",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true
+			}
+
+		}
+	],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "黑马优购",
 		"navigationBarBackgroundColor": "#c00000",
 		"backgroundColor": "#c00000",
-		"enablePullDownRefresh": true
+		"usingComponents": {
+			"van-card": "wxcomponents/vant/card/index",
+			"van-icon": "wxcomponents/vant/icon/index",
+			"van-goods-action": "wxcomponents/vant/goods-action/index",
+			"van-goods-action-icon": "wxcomponents/vant/goods-action-icon/index",
+			"van-goods-action-button": "wxcomponents/vant/goods-action-button/index"
+		}
 	},
 	"tabBar": {
 		"selectedColor": "#c00000",
-		"list":[
-			{
+		"list": [{
 				"pagePath": "pages/home/home",
 				"text": "首页",
 				"iconPath": "/static/tab_icons/home.png",
@@ -72,7 +71,7 @@
 				"iconPath": "/static/tab_icons/my.png",
 				"selectedIconPath": "static/tab_icons/my-active.png"
 			}
-			
+
 		]
 	},
 	"uniIdRouter": {}

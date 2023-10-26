@@ -12,25 +12,48 @@
 				<image :src="item.image_src" mode=""></image>
 			</view>
 		</view>
+		<!-- 楼层区域 -->
+		<view class="floor-list">
+			<!-- 楼层 item 项 -->
+			<view class="floor-item" v-for="(item,i) in floors" :key="i">
+				<!-- 楼层标题 -->
+				<image :src="item.floor_title.image_src" class="floor-title"></image>
+				<!-- 楼层的图片 -->
+				<view class="img_box">
+					<!-- 左侧大图片的盒子 -->
+					<image @click="goGoodsList(item.product_list[0].navigator_url)" class="left" :src="item.product_list[0].image_src"></image>
+					<!-- 右侧 4 个小图片的盒子 -->
+					<view class="right">
+						<image @click="goGoodsList(item2.navigator_url)" v-for="(item2,i2) in item.product_list" v-if="i2 !== 0" :src="item2.image_src"></image>
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
 <script>
-	import fly from '../../utils/flyio.js'
+	import {
+		loadSwipers,
+		loadNavs,
+		loadFloors
+	} from '../../api/home.js'
 	export default {
 		data() {
 			return {
 				// 轮播图数据
 				swipers: [],
 				// 导航数据
-				navs: []
+				navs: [],
+				// 楼层数据
+				floors: []
 			};
 		},
 		methods: {
 			// 获取轮播图
 			async getHomeSwipers() {
 				// 第一个参数就是接口地址
-				const res = await fly.get('https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata')
+				const res = await loadSwipers()
 				this.swipers = res.data.message
 			},
 			// 跳转到商品详情
@@ -41,7 +64,7 @@
 			},
 			// 获取导航数据
 			async getNavs() {
-				const res = await fly.get('https://api-hmugo-web.itheima.net/api/public/v1/home/catitems')
+				const res = await loadNavs()
 				this.navs = res.data.message
 			},
 			// 跳转到分类页
@@ -49,11 +72,22 @@
 				uni.switchTab({
 					url: '/pages/cate/cate'
 				})
+			},
+			// 获取楼层数据
+			async getHomeFloors() {
+				const res = await loadFloors()
+				this.floors = res.data.message
+			},
+			goGoodsList(url){
+				uni.navigateTo({
+					url:'/pages/goods_list/goods_list?' + url.split('?')[1]
+				})
 			}
 		},
 		onLoad() {
 			this.getHomeSwipers()
 			this.getNavs()
+			this.getHomeFloors()
 		}
 	}
 </script>
@@ -84,6 +118,41 @@
 				image {
 					width: 128rpx;
 					height: 128rpx;
+				}
+			}
+		}
+
+		// 楼层区域
+		.floor-list {
+			.floor-item {
+				.floor-title {
+					height: 60rpx;
+					width: 100%;
+				}
+
+				.img_box {
+					display: flex;
+					justify-content: space-between;
+					padding-left: 10rpx;
+
+					.left {
+						width: 232rpx;
+						height: 392rpx;
+						float: left;
+					}
+
+					.right {
+						width: 500rpx;
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: space-around;
+						align-content: space-between;
+
+						image {
+							width: 233rpx;
+							height: 190rpx;
+						}
+					}
 				}
 			}
 		}
