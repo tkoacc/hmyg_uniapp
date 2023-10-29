@@ -30,6 +30,20 @@
 				"enablePullDownRefresh": true
 			}
 
+		},
+		{
+			"path": "components/ug-address/ug-address",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/xtx-login/xtx-login",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
 		}
 	],
 	"globalStyle": {
@@ -42,7 +56,10 @@
 			"van-icon": "wxcomponents/vant/icon/index",
 			"van-goods-action": "wxcomponents/vant/goods-action/index",
 			"van-goods-action-icon": "wxcomponents/vant/goods-action-icon/index",
-			"van-goods-action-button": "wxcomponents/vant/goods-action-button/index"
+			"van-goods-action-button": "wxcomponents/vant/goods-action-button/index",
+			"van-radio": "wxcomponents/vant/radio/index",
+			"van-field": "wxcomponents/vant/field/index",
+			"van-button": "wxcomponents/vant/button/index"
 		}
 	},
 	"tabBar": {

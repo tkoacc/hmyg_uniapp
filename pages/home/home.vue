@@ -21,10 +21,12 @@
 				<!-- 楼层的图片 -->
 				<view class="img_box">
 					<!-- 左侧大图片的盒子 -->
-					<image @click="goGoodsList(item.product_list[0].navigator_url)" class="left" :src="item.product_list[0].image_src"></image>
+					<image @click="goGoodsList(item.product_list[0].navigator_url)" class="left"
+						:src="item.product_list[0].image_src"></image>
 					<!-- 右侧 4 个小图片的盒子 -->
 					<view class="right">
-						<image @click="goGoodsList(item2.navigator_url)" v-for="(item2,i2) in item.product_list" v-if="i2 !== 0" :src="item2.image_src"></image>
+						<image @click="goGoodsList(item2.navigator_url)" v-for="(item2,i2) in item.product_list"
+							v-if="i2 !== 0" :src="item2.image_src"></image>
 					</view>
 				</view>
 			</view>
@@ -38,6 +40,10 @@
 		loadNavs,
 		loadFloors
 	} from '../../api/home.js'
+	import {
+		mapGetters
+	} from 'vuex'
+
 	export default {
 		data() {
 			return {
@@ -48,6 +54,15 @@
 				// 楼层数据
 				floors: []
 			};
+		},
+		onShow() {
+			uni.setTabBarBadge({
+				index: 2,
+				text: this.totalCount + ''
+			})
+		},
+		computed: {
+			...mapGetters('cart', ['totalCount'])
 		},
 		methods: {
 			// 获取轮播图
@@ -78,9 +93,9 @@
 				const res = await loadFloors()
 				this.floors = res.data.message
 			},
-			goGoodsList(url){
+			goGoodsList(url) {
 				uni.navigateTo({
-					url:'/pages/goods_list/goods_list?' + url.split('?')[1]
+					url: '/pages/goods_list/goods_list?' + url.split('?')[1]
 				})
 			}
 		},

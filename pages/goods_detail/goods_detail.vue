@@ -29,7 +29,7 @@
 		<!-- 底部导航区域 -->
 		<van-goods-action>
 			<van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
-			<van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+			<van-goods-action-icon :info="totalCount" icon="cart-o" text="购物车" bind:click="onClickIcon" />
 			<van-goods-action-button text="加入购物车" type="warning" @click="addToCart" />
 			<van-goods-action-button text="立即购买" @click="goCart" />
 		</van-goods-action>
@@ -43,13 +43,17 @@
 	} from '@/api/goods.js'
 	import {
 		mapState,
-		mapMutations
+		mapMutations,
+		mapGetters
 	} from 'vuex'
 	export default {
 		data() {
 			return {
 				goodsInfo: {}
 			};
+		},
+		computed: {
+			...mapGetters('cart',['totalCount'])
 		},
 		methods: {
 			...mapMutations('cart', ['add']),
